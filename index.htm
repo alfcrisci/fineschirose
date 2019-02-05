@@ -62,14 +62,14 @@
             osm = L.tileLayer(osmUrl, { maxZoom: 20, attribution: osmAttrib }),
             map = new L.Map('map', { center: new L.LatLng(51.505, -0.04), zoom: 13 }),
             drawnItems = L.featureGroup().addTo(map);
-    L.control.layers({
-        'osm': osm.addTo(map),
-        "google": L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
-            attribution: 'google'
-        })
-    }, { 'drawlayer': drawnItems }, { position: 'topleft', collapsed: false }).addTo(map);
-        
-        var featureGroup = L.featureGroup().addTo(map);
+   L.control.layers({
+            'Satellite Map': L.mapbox.tileLayer('bobbysud.map-l4i2m7nd', {
+                detectRetina: true
+            }).addTo(map),
+            'Terrain Map': L.mapbox.tileLayer('bobbysud.i2pfp2lb', {
+                detectRetina: true
+            })
+        }).addTo(map);
 
         var drawControl = new L.Control.Draw({
             edit: {

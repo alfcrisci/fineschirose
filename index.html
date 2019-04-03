@@ -60,16 +60,18 @@
       
     L.control.layers({
         'OpenstreetMap': osm.addTo(map),
-        "Google Maps": L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
-            attribution: 'Google Maps', 
-            maxZoom: 22
-        }),
        "Esri World Imagery":L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'ESRI,i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
             maxZoom: 18
             }),
     }, { 'drawlayer': drawnItems }, { position: 'topleft', collapsed: false }).addTo(map);
     
+    var img_neutral_modificato_0 = 'data/neutral_modificato_0.png';
+    var img_bounds_neutral_modificato_0 = [[43.5322321660689,11.500199087615096],[43.53340866763026,11.503329604813157]];
+    var layer_neutral_modificato_0 = new L.imageOverlay(img_neutral_modificato_0, img_bounds_neutral_modificato_0);
+    map.addLayer(layer_neutral_modificato_0);
+                
+                           
    map.addControl(new L.Control.Draw({
         edit: {
             featureGroup: drawnItems,
